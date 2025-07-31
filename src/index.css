@@ -58,7 +58,7 @@ body {
     }
 
     #hero {
-        @apply relative w-full h-dvh bg-noisy flow-root;
+        @apply relative w-full h-dvh bg-noisy flow-root z-10;
 
         h1 {
             @apply mt-40 md:mt-32 text-8xl md:text-[20vw] text-center font-modern-negra leading-none;
@@ -98,6 +98,14 @@ body {
 
         .hero-arrow {
             @apply absolute 2xl:top-1/2 2xl:-translate-y-1/3 right-20 hidden xl:block
+        }
+    }
+
+    .video {
+        @apply absolute inset-0;
+
+        video {
+            @apply absolute bottom-0 left-0 w-full h-1/2 md:h-[80%] object-bottom object-cover md:object-contain
         }
     }
 

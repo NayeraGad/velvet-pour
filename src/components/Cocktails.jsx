@@ -1,7 +1,29 @@
-import React from "react";
+import gsap from "gsap";
 import { lovedCocktails, popularCocktails } from "../constants";
+import { useGSAP } from "@gsap/react";
 
 const Cocktails = () => {
+  useGSAP(() => {
+    const cocktailTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#cocktails",
+        start: "top 30%",
+        end: "bottom 80%",
+        scrub: true,
+      },
+    });
+
+    cocktailTimeline
+      .from(".cocktail-left-leaf", {
+        x: -100,
+        y: 100,
+      })
+      .from(".cocktail-right-leaf", {
+        x: 100,
+        y: 100,
+      });
+  });
+
   return (
     <section id="cocktails">
       <img
