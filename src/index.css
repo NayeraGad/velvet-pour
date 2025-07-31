@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@import 'tailwindcss';
+
+@font-face {
+    font-family: "Modern Negra";
+    src: url("/fonts/Modern Negra Demo.ttf") format("truetype");
+}
+
+@theme {
+    --color-yellow: #e7d393;
+    --color-white-100: #efefef;
+    --font-sans: "Mona Sans", sans-serif;
+    --font-modern-negra: "Modern Negra", sans-serif;
+    --font-serif: "DM Serif Text", serif;
+}
+
+html,
+body {
+    @apply w-full overflow-x-hidden bg-black text-white font-sans scroll-smooth
+}
+
+@utility flex-center {
+    @apply flex justify-center items-center
+}
+
+@utility bg-noisy {
+    @apply absolute bg-[url('/images/noise.png')] size-full
+}
+
+@utility header-gradient {
+    @apply bg-linear-to-b from-white to-[#898989] bg-clip-text text-transparent
+}
+
+@layer components {
+    main {
+        @apply w-full overflow-x-hidden;
+    }
+
+    nav {
+        @apply fixed w-full z-50;
+
+        div {
+            @apply container flex flex-col md:flex-row items-center md:justify-between gap-6 mx-auto p-5;
+        }
+
+        a {
+            @apply cursor-pointer flex items-center gap-2 text-sm md:text-base text-nowrap;
+        }
+
+        span {
+            @apply -mb-2 text-3xl font-modern-negra
+        }
+
+        ul {
+            @apply flex-center gap-7 lg:gap-12;
+        }
+    }
+
+    #hero {
+        @apply relative w-full h-dvh bg-noisy flow-root;
+
+        h1 {
+            @apply mt-40 md:mt-32 text-8xl md:text-[20vw] header-gradient text-center font-modern-negra leading-none;
+        }
+
+        .hero-body {
+            @apply absolute lg:bottom-20 w-full z-10;
+
+            .hero-content {
+                @apply container flex flex-col lg:flex-row justify-between gap-10 items-center lg:items-end mx-auto px-5 text-center lg:text-start;
+
+                .tagline {
+                    @apply hidden md:block space-y-5;
+
+                    .subtitle {
+                        @apply max-w-xl text-yellow text-6xl font-modern-negra
+                    }
+                }
+
+                .hero-details {
+                    @apply w-full md:max-w-xs lg:max-w-2xs space-y-5 text-lg;
+
+                    a {
+                        @apply font-semibold opacity-80 hover:text-yellow
+                    }
+                }
+            }
+        }
+
+        .hero-right-leaf {
+            @apply absolute top-1/2 xl:top-0 2xl:top-12 right-0 md:bottom-0 w-24 md:w-fit
+        }
+
+        .hero-left-leaf {
+            @apply absolute -bottom-20 md:top-20 xl:top-36 2xl:top-52 left-0 w-1/3 md:w-fit
+        }
+
+        .hero-arrow {
+            @apply absolute 2xl:top-1/2 2xl:-translate-y-1/3 right-20 hidden xl:block
+        }
+    }
+}
