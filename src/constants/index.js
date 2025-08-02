@@ -59,11 +59,19 @@ export const lovedCocktails = [
   },
 ];
 
-export const goodLists = [
-  "Handpicked ingredients",
-  "Signature techniques",
-  "Bartending artistry in action",
-  "Freshly muddled flavors",
+export const profilesList = [
+  {
+    imgPath: "/images/profile1.png",
+  },
+  {
+    imgPath: "/images/profile2.png",
+  },
+  {
+    imgPath: "/images/profile3.png",
+  },
+  {
+    imgPath: "/images/profile4.png",
+  },
 ];
 
 export const featureLists = [
@@ -71,6 +79,13 @@ export const featureLists = [
   "Garnished to perfection",
   "Ice-cold every time",
   "Expertly shaken & stirred",
+];
+
+export const goodLists = [
+  "Handpicked ingredients",
+  "Signature techniques",
+  "Bartending artistry in action",
+  "Freshly muddled flavors",
 ];
 
 export const storeInfo = {

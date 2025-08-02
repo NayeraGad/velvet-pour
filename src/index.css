@@ -20,8 +20,16 @@ body {
     @apply w-full overflow-x-hidden bg-black text-white font-sans scroll-smooth
 }
 
+span {
+    @apply inline-block
+}
+
 @utility flex-center {
     @apply flex justify-center items-center
+}
+
+@utility section-container {
+    @apply container mx-auto px-5
 }
 
 @utility bg-noisy {
@@ -41,7 +49,7 @@ body {
         @apply fixed w-full z-50;
 
         div {
-            @apply container flex flex-col md:flex-row items-center md:justify-between gap-6 mx-auto p-5 lg:px-0;
+            @apply section-container flex flex-col md:flex-row items-center md:justify-between gap-6 py-5 lg:px-0;
         }
 
         a {
@@ -58,7 +66,7 @@ body {
     }
 
     #hero {
-        @apply relative w-full h-dvh bg-noisy flow-root z-10;
+        @apply relative w-full min-h-dvh bg-noisy flow-root z-10;
 
         h1 {
             @apply mt-40 md:mt-32 text-8xl md:text-[20vw] text-center font-modern-negra leading-none;
@@ -68,7 +76,7 @@ body {
             @apply absolute lg:bottom-20 w-full z-10;
 
             .hero-content {
-                @apply container flex flex-col lg:flex-row justify-between gap-10 items-center lg:items-end mx-auto px-5 text-center lg:text-start;
+                @apply section-container flex flex-col lg:flex-row justify-between gap-10 items-center lg:items-end text-center lg:text-start;
 
                 .tagline {
                     @apply hidden md:block space-y-5;
@@ -125,7 +133,7 @@ body {
         }
 
         .cocktail-lists {
-            @apply relative flex flex-col md:flex-row md:justify-between gap-20 container mx-auto pt-40 px-5 2xl:px-0;
+            @apply relative flex flex-col md:flex-row md:justify-between gap-20 section-container pt-40 2xl:px-0;
 
             .loved-cocktails {
                 @apply mb-20 md:pb-0;
@@ -162,6 +170,88 @@ body {
                     }
                 }
             }
+        }
+    }
+
+    #about {
+        @apply section-container min-h-dvh py-28 2xl:px-0;
+
+        .about-content {
+            @apply flex flex-col lg:flex-row justify-between gap-5 px-5 md:px-0 pb-16;
+
+            .badge {
+                @apply mb-8 rounded-full px-5 py-2.5 bg-white text-black text-sm font-medium;
+            }
+
+            h2 {
+                @apply max-w-lg text-5xl md:text-6xl font-modern-negra;
+            }
+
+            .about-details {
+                @apply space-y-5;
+
+                p {
+                    @apply max-w-lg md:text-lg;
+                }
+
+                .testimonial {
+                    @apply grid grid-cols-1 md:grid-cols-12 gap-y-5;
+
+                    .rating {
+                        @apply md:col-span-6 space-y-5;
+
+                        li {
+                            @apply inline-block;
+                        }
+
+                        span {
+                            @apply text-2xl font-bold;
+                        }
+
+                        p {
+                            @apply text-white-100 text-sm
+                        }
+                    }
+
+                    .profiles {
+                        @apply md:col-span-6 flex-center md:border-l md:border-[#565656];
+
+                        .profiles-list {
+                            @apply relative size-fit px-6 py-5 rounded-full bg-noisy;
+
+                            img {
+                                @apply w-[44px] h-[44px] inline-block not-first:-ml-2.5;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .grid {
+            @apply grid gap-5 mb-5 px-5 md:px-0;
+
+            .card {
+                @apply relative md:h-72 overflow-hidden rounded-3xl before:bg-noisy;
+
+                img {
+                    @apply w-full h-full object-cover
+                }
+
+                .features-card {
+                    @apply flex md:flex-center flex-col md:text-lg gap-4 mt-10 mb-9 px-5;
+
+                    h3 {
+                        @apply border-b pb-2 text-2xl md:text-3xl font-modern-negra
+                    }
+                }
+            }
+        }
+    }
+
+    .features-card {
+        li {
+            @apply flex items-center gap-2
         }
     }
 }
