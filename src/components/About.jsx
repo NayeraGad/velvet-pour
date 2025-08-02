@@ -1,7 +1,40 @@
 import { FaCheckCircle, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { featureLists, profilesList } from "../constants";
+import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/all";
+import gsap from "gsap";
 
 const About = () => {
+  useGSAP(() => {
+    const titleSplit = SplitText.create("#about h2", { type: "lines" });
+
+    const aboutTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#about",
+        start: "top center",
+      },
+    });
+
+    aboutTimeline
+      .from(titleSplit.lines, {
+        opacity: 0,
+        duration: 1,
+        yPercent: 100,
+        ease: "expo.out",
+        stagger: 0.02,
+      })
+      .from(
+        ".grid div",
+        {
+          opacity: 0,
+          duration: 1,
+          ease: "power1.inOut",
+          stagger: 0.04,
+        },
+        "-=0.5"
+      );
+  });
+
   return (
     <div id="about">
       <div className="about-content">
@@ -54,9 +87,9 @@ const About = () => {
         </div>
       </div>
 
-      <div className="grid xl:grid-cols-12">
+      <div className="grid xl:grid-cols-12 mb-5">
         <div className="card md:col-span-3">
-          <img src="/images/abt1.png" alt="about image" />
+          <img src="/images/abt1.png" alt="about image" loading="lazy" />
         </div>
 
         <div className="card md:col-span-3">
@@ -75,17 +108,17 @@ const About = () => {
         </div>
 
         <div className="card md:col-span-6">
-          <img src="/images/abt2.png" alt="about image" />
+          <img src="/images/abt2.png" alt="about image" loading="lazy" />
         </div>
       </div>
 
       <div className="grid md:grid-cols-12">
         <div className="card md:col-span-7">
-          <img src="/images/abt3.png" alt="about image" />
+          <img src="/images/abt3.png" alt="about image" loading="lazy" />
         </div>
 
         <div className="card md:col-span-5">
-          <img src="/images/abt4.png" alt="about image" />
+          <img src="/images/abt4.png" alt="about image" loading="lazy" />
         </div>
       </div>
     </div>
