@@ -27,7 +27,7 @@ const Navbar = () => {
   return (
     <nav>
       <div>
-        <a href="/">
+        <a href="#hero">
           <img src="/logo.png" alt="Velvet pour logo" />
           <span>Velvet Pour</span>
         </a>
@@ -35,7 +35,7 @@ const Navbar = () => {
         <ul>
           {navLinks.map(({ id, title }) => (
             <li key={id}>
-              <a href={id}>{title}</a>
+              <a href={`#${id}`}>{title}</a>
             </li>
           ))}
         </ul>

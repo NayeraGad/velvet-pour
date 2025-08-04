@@ -96,9 +96,9 @@ const About = () => {
           <div className="features-card">
             <h3>Crafted to Impress</h3>
 
-            <ul className="space-y-4">
+            <ul className="features-list">
               {featureLists.map((feature, i) => (
-                <li className="" key={`feature ${i}`}>
+                <li key={`feature ${i}`}>
                   <FaCheckCircle />
                   <p>{feature}</p>
                 </li>

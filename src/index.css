@@ -40,6 +40,14 @@ span {
     @apply bg-linear-to-b from-white to-[#898989] bg-clip-text text-transparent
 }
 
+@utility section-radial {
+    @apply bg-radial-[circle_at_center] from-0% from-[#434343] via-50% via-black to-transparent to-100%
+}
+
+@utility img-mask {
+    @apply mask-[url(/images/mask-img.png)] mask-center mask-no-repeat mask-size-[50%]
+}
+
 @layer components {
     main {
         @apply w-full overflow-x-hidden;
@@ -249,9 +257,39 @@ span {
         }
     }
 
-    .features-card {
+    .features-list {
+        @apply space-y-4;
+
         li {
             @apply flex items-center gap-2
+        }
+    }
+
+    #art {
+        @apply relative min-h-dvh flex-center flex-col mt-20 section-radial;
+
+        .art-container {
+            @apply section-container h-full pt-20;
+
+            h2 {
+                @apply relative mb-8 text-[#505050] text-8xl md:text-[20vw] font-modern-negra text-center text-nowrap;
+            }
+
+            .art-content {
+                @apply flex flex-col md:flex-row justify-between gap-10 mt-40 md:mt-0 md:mb-16;
+
+                .cocktail-img {
+                    @apply bg-amber-300 absolute top-0 md:top-1/2 md:-translate-y-1/2 left-1/2 -translate-x-1/2 w-full md:w-[60vw] h-[50vh] md:h-[70vh] rounded-4xl overflow-hidden;
+
+                    img {
+                        @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-full object-contain img-mask;
+                    }
+
+                    h3 {
+                        @apply absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-full lg:-translate-y-0 text-4xl md:text-5xl font-modern-negra text-nowrap
+                    }
+                }
+            }
         }
     }
 }
