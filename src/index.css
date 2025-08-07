@@ -306,4 +306,44 @@ span {
             }
         }
     }
+
+    #contact {
+        @apply relative w-full mt-0 md:mt-20 px-4 section-radial overflow-hidden;
+
+        .footer-content {
+            @apply flex flex-col justify-center gap-10 min-h-dvh section-container py-16 lg:py-14 text-center;
+
+            h2 {
+                @apply text-4xl lg:text-6xl 2xl:text-8xl font-modern-negra translate-y-5
+            }
+
+            h3 {
+                @apply text-base uppercase 2xl:text-lg
+            }
+
+            div, address {
+                @apply space-y-2
+            }
+
+            address {
+                @apply not-italic
+            }
+
+            .socials ul {
+                @apply flex justify-center
+            }
+        }
+
+        .footer-right-leaf {
+            @apply hidden md:block absolute top-0 right-0
+        }
+
+        .footer-left-leaf {
+            @apply absolute bottom-0 left-0 w-1/2 md:w-fit
+        }
+
+        .footer-drinks {
+            @apply absolute bottom-0 right-0 w-1/2 md:w-96
+        }
+    }
 }
