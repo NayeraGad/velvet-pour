@@ -7,7 +7,7 @@ import {
   Contact,
   Hero,
   Navbar,
-  Slider,
+  Menu,
 } from "./components";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -19,7 +19,7 @@ const App = () => (
     <Cocktails />
     <About />
     <Art />
-    {/* <Slider /> */}
+    <Menu />
     <Contact />
   </main>
 );
