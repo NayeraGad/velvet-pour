@@ -328,6 +328,10 @@ button {
             button {
                 @apply border-b border-white/50 pb-2 text-white/50 text-xl md:text-3xl font-modern-negra
             }
+
+            .active {
+                @apply border-white text-white
+            }
         }
 
         .menu-content {
