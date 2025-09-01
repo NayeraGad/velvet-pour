@@ -4,23 +4,16 @@ import { allCocktails } from "../constants";
 const Menu = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const nextCocktail = () => {
-    if (currentIndex === allCocktails.length - 1) return setCurrentIndex(0);
-
-    setCurrentIndex(currentIndex + 1);
-  };
-
-  const prevCocktail = () => {
-    if (currentIndex === 0) return setCurrentIndex(allCocktails.length - 1);
-
-    setCurrentIndex(currentIndex - 1);
-  };
-
   const goToSlide = (index) => {
-    setCurrentIndex(index);
+    setCurrentIndex((index + allCocktails.length) % allCocktails.length);
   };
 
-  let { image, name, title, description } = allCocktails[currentIndex];
+  const { image, name, title, description } = allCocktails[currentIndex];
+  const nextCocktail =
+    allCocktails[(currentIndex + 1) % allCocktails.length].name;
+  const prevCocktail =
+    allCocktails[(currentIndex - 1 + allCocktails.length) % allCocktails.length]
+      .name;
 
   return (
     <section id="menu" aria-label="Cocktail menu">
@@ -56,11 +49,19 @@ const Menu = () => {
 
       <div className="menu-content">
         <div className="arrows">
-          <button aria-label="previous arrow" onClick={prevCocktail}>
+          <button
+            aria-label="previous arrow"
+            onClick={() => goToSlide(currentIndex - 1)}
+          >
+            <span>{prevCocktail}</span>
             <img src="/images/right-arrow.png" alt="" role="presentation" />
           </button>
 
-          <button aria-label="next arrow" onClick={nextCocktail}>
+          <button
+            aria-label="next arrow"
+            onClick={() => goToSlide(currentIndex + 1)}
+          >
+            <span>{nextCocktail}</span>
             <img src="/images/left-arrow.png" alt="" role="presentation" />
           </button>
         </div>

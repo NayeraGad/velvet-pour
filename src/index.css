@@ -20,10 +20,6 @@ body {
     @apply w-full overflow-x-hidden bg-black text-white font-sans scroll-smooth
 }
 
-span {
-    @apply inline-block;
-}
-
 button {
     @apply cursor-pointer;
 }
@@ -50,6 +46,10 @@ button {
 
 @utility img-mask {
     @apply mask-[url(/images/mask-img.png)] mask-center mask-no-repeat mask-size-[50%]
+}
+
+@utility active {
+    @apply border-white text-white
 }
 
 @layer components {
@@ -192,7 +192,7 @@ button {
             @apply flex flex-col lg:flex-row justify-between gap-5 px-5 md:px-0 pb-16;
 
             .badge {
-                @apply mb-8 rounded-full px-5 py-2.5 bg-white text-black text-sm font-medium;
+                @apply inline-block mb-8 rounded-full px-5 py-2.5 bg-white text-black text-sm font-medium;
             }
 
             h2 {
@@ -217,7 +217,7 @@ button {
                         }
 
                         span {
-                            @apply text-2xl font-bold;
+                            @apply inline-block text-2xl font-bold;
                         }
 
                         p {
@@ -323,22 +323,34 @@ button {
         }
 
         nav {
-            @apply relative grid grid-cols-2 md:grid-cols-4 gap-10 mb-10 mx-auto md:max-w-6xl z-10;
+            @apply relative grid grid-cols-2 md:grid-cols-4 gap-10 mb-10 mx-auto md:max-w-6xl !bg-transparent;
 
             button {
-                @apply border-b border-white/50 pb-2 text-white/50 text-xl md:text-3xl font-modern-negra
-            }
-
-            .active {
-                @apply border-white text-white
+                @apply border-b border-white/50 pb-2 text-white/50 hover:active transition-colors text-xl md:text-3xl font-modern-negra
             }
         }
 
         .menu-content {
-            @apply flex flex-col justify-between items-center;
+            @apply relative flex flex-col justify-between items-center container mx-auto;
 
             .arrows {
-                @apply flex justify-between items-center w-full;
+                @apply absolute flex justify-between items-center w-full;
+
+                button {
+                    @apply max-w-36 hover:text-yellow transition-colors text-left;
+
+                    span {
+                        @apply hidden md:block text-3xl font-modern-negra;
+                    }
+                }
+            }
+        }
+
+        .cocktail {
+            @apply flex-center mt-10;
+
+            img {
+                @apply h-[60vh] object-contain;
             }
         }
 
