@@ -1,8 +1,24 @@
 import { useState } from "react";
 import { allCocktails } from "../constants";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Menu = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  useGSAP(() => {
+    gsap.fromTo(
+      ".cocktail img",
+      { opacity: 0, xPercent: -100 },
+      { opacity: 1, xPercent: 0, duration: 1, ease: "power1.out" }
+    );
+    gsap.fromTo(".titles h2", { opacity: 0 }, { opacity: 1, duration: 1 });
+    gsap.fromTo(
+      ".details h3, .details p",
+      { opacity: 0, yPercent: 100 },
+      { opacity: 1, yPercent: 0, ease: "power1.out" }
+    );
+  }, [currentIndex]);
 
   const goToSlide = (index) => {
     setCurrentIndex((index + allCocktails.length) % allCocktails.length);
